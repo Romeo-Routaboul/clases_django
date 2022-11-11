@@ -4,7 +4,7 @@ from django.db import models
 
 class Curso(models.Model):
 
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=100)
     camada = models.IntegerField() 
 
 class Estudiante(models.Model):
