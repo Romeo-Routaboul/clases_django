@@ -3,6 +3,10 @@ from appcode.models import*
 from appcode.forms import*
 from django.shortcuts import render
 
+# Dependencias para resolver apertura de archivos usando rutas relativas
+from proyecto.settings import BASE_DIR
+import os
+
 # Create your views here.
 def inicio(request):
     return render(request,"appcode/index.html")
@@ -57,3 +61,13 @@ def resultados_busqueda_cursos(request):
 
     cursos = Curso.objects.filter(nombre__icontains=nombre_curso)
     return render(request, "appcode/resultados_busquedas_cursos.html", {"cursos": cursos})
+
+
+def test(request):
+    ruta = os.path.join(BASE_DIR, "appcode/templates/appcode/cursos.html")
+    print(BASE_DIR, __file__)
+    file = open(ruta)
+
+    return HttpResponse(file.read())
+
+
