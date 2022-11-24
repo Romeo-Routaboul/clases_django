@@ -7,7 +7,7 @@ class Curso(models.Model):
     nombre = models.CharField(max_length=100)
     camada = models.IntegerField() 
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f'{self.nombre} Camada: {self.camada}'
 
 class Estudiante(models.Model):
